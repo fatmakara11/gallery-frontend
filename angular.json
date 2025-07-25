@@ -96,7 +96,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+
               }
             ],
             "styles": [
@@ -106,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "169890a8-8364-4201-8965-6de254a1fb43"
   }
 }
