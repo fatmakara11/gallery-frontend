@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+:host {
+  display: block;
+  overflow-x: hidden;
+}
+
+.home-page, .about-page, .container, .features-grid, .feature-card, section {
+  max-width: 100%;
+  overflow-x: hidden;
+}

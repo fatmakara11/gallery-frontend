@@ -1,0 +1,128 @@
+.team-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.team-header h2 {
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.team-header button {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.team-header button:hover {
+  background-color: #e73370;
+}
+
+.team-form {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+}
+
+.team-form input {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.team-form button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.team-form button:hover {
+  background-color: #1976d2;
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  background-color: #f5f5f5;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.team-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-buttons button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card-buttons button:hover {
+  background-color: #d6d6d6;
+}
+
+.card-buttons .edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.card-buttons .edit-btn:hover {
+  background-color: #388e3c;
+}
+
+.card-buttons .delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.card-buttons .delete-btn:hover {
+  background-color: #d32f2f;
+}

@@ -1,0 +1,129 @@
+/* Genel Sayfa Ayarları */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(to right, #1c1c1c, #2c2c2c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Ana Login Kutusu */
+.login-container {
+  background-color: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Başlık & Logo */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
+  background-color: #ff4081;
+  border-radius: 50%;
+}
+
+.login-header h2 {
+  color: #ff4081;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Form Alanları */
+.login-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 0 2px rgba(255, 64, 129, 0.2);
+}
+
+/* Checkbox & Linkler */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  color: #555;
+}
+
+.checkbox-label input {
+  margin-right: 0.5rem;
+}
+
+.forgot-password {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Giriş Butonu */
+.btn-primary {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e60066;
+}
+
+/* Alt Bilgi */
+.login-footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}

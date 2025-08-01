@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { EmployeeFilterComponent } from './admin/employee-filter.component/employee-filter.component';
 
 
 
@@ -53,7 +54,8 @@ import { MatSelectModule } from '@angular/material/select';
     DepartmentManager,
     TeamManager,
     EmployeeManager,
-    Dashboard
+    Dashboard,
+    EmployeeFilterComponent
   ],
   imports: [
     BrowserModule,

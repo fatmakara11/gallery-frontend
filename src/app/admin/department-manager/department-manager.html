@@ -1,0 +1,32 @@
+<div class="department-manager">
+  <h2>Department Manager</h2>
+
+  <div class="card-grid">
+    <div *ngFor="let dept of departments; let i = index" class="department-card">
+      <div *ngIf="!editMode[i]">
+        <h3>{{ dept.name }}</h3>
+        <p>{{ dept.description }}</p>
+        <div class="actions">
+          <button class="btn btn-edit" (click)="enableEdit(i)">Güncelle</button>
+          <button class="btn btn-delete" (click)="deleteDepartment(dept.id!)">Sil</button>
+        </div>
+      </div>
+
+      <div *ngIf="editMode[i]">
+        <input [(ngModel)]="dept.name" placeholder="Department Name" />
+        <textarea [(ngModel)]="dept.description" placeholder="Description"></textarea>
+        <div class="actions">
+          <button class="btn btn-save" (click)="saveEdit(i)">Kaydet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Department Card -->
+    <div class="department-card new-card">
+      <h3>New Department +</h3>
+      <input [(ngModel)]="newDepartment.name" placeholder="Name" />
+      <textarea [(ngModel)]="newDepartment.description" placeholder="Description"></textarea>
+      <button class="btn btn-add" (click)="addDepartment()">Ekle</button>
+    </div>
+  </div>
+</div>

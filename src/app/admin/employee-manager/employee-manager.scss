@@ -1,0 +1,127 @@
+.employee-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // Status-based background colors
+  &-active {
+    background-color: #fffac2; // Çok açık sarı
+  }
+
+  &-resigned {
+    background-color: #d0e7ff; // Çok açık mavi
+  }
+
+  &-onleave {
+    background-color: #ffd6d6; // Çok açık kırmızı
+  }
+}
+
+
+.card-info h3 {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.card-info p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card button {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.card button:first-of-type {
+  background-color: #f44336;
+  margin-right: 10px;
+}
+
+.card button:first-of-type:hover {
+  background-color: #d32f2f;
+}
+
+.card button:last-of-type {
+  background-color: #2196f3;
+}
+
+.card button:last-of-type:hover {
+  background-color: #1976d2;
+}
+
+.new-employee {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Grid yapısı */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Mobil için */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.new-employee button {
+  margin-top: 15px;
+  padding: 10px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.new-employee button:hover {
+  background-color: #145ea8;
+}
