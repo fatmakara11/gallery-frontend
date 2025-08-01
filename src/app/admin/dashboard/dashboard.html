@@ -1,0 +1,40 @@
+<section class="admin-content">
+  <div class="cards-container">
+    <article class="card card-departments">
+      <h3>Total Departments</h3>
+      <p class="card-number">{{ departmentCount }}</p>
+    </article>
+    <article class="card card-teams">
+      <h3>Total Teams</h3>
+      <p class="card-number">{{ teamCount }}</p>
+    </article>
+    <article class="card card-employees">
+      <h3>Total Employees</h3>
+      <p class="card-number">{{ employeeCount }}</p>
+    </article>
+  </div>
+</section>
+<section class="stats-chart-container">
+  <div class="stats-section">
+    <h3 class="stats-title">General Stats</h3>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <span class="stat-label">Departments</span>
+        <span class="stat-value">{{ departmentCount }}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Teams</span>
+        <span class="stat-value">{{ teamCount }}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Employees</span>
+        <span class="stat-value">{{ employeeCount }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <h3 class="chart-title">Employee Distribution by Department</h3>
+    <canvas id="employeePieChart" width="400" height="400"></canvas>
+  </div>
+</section>

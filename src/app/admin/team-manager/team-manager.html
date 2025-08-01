@@ -1,0 +1,37 @@
+<div class="team-container">
+
+  <div class="team-header">
+    <h2>Takımlar</h2>
+  </div>
+
+  <div class="team-list">
+    <div *ngFor="let team of teams; let i = index" class="team-card">
+
+      <!-- Görüntüleme Modu -->
+      <div *ngIf="!editMode[i]">
+        <div class="team-name">{{ team.name }}</div>
+        <div class="card-buttons">
+          <button class="edit-btn" (click)="enableEdit(i)">Düzenle</button>
+          <button class="delete-btn" (click)="deleteTeam(team.id!)">Sil</button>
+        </div>
+      </div>
+
+      <!-- Düzenleme Modu -->
+      <div *ngIf="editMode[i]" class="team-form">
+        <input [(ngModel)]="teams[i].name" placeholder="Takım Adı" />
+        <div class="card-buttons">
+          <button class="edit-btn" (click)="saveEdit(i)">Kaydet</button>
+          <button class="delete-btn" (click)="editMode[i] = false">İptal</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Yeni Takım Ekleme -->
+  <div class="team-form">
+    <input [(ngModel)]="newTeam.name" placeholder="Yeni Takım Adı" />
+    <button (click)="addTeam()">Ekle</button>
+  </div>
+
+</div>

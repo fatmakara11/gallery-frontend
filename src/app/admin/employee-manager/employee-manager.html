@@ -1,0 +1,68 @@
+<div class="employee-container">
+  <div *ngFor="let emp of employees" class="card">
+
+    <!-- Normal Görünüm -->
+    <div *ngIf="editableId !== emp.id" class="card-info">
+      <h3>{{ emp.firstName }} {{ emp.lastName }}</h3>
+      <p>Department: {{ emp.department.name }}</p>
+      <p>Team: {{ emp.team.name }}</p>
+      <p>Hire Date: {{ emp.hireDate }}</p>
+      <button (click)="deleteEmployee(emp.id!)">Delete</button>
+      <button (click)="setEditable(emp)">Update</button>
+    </div>
+
+    <!-- Düzenleme Modu -->
+    <div *ngIf="editableId === emp.id" class="card-edit">
+      <input type="text" [(ngModel)]="newEmployee.firstName" placeholder="First Name">
+      <input type="text" [(ngModel)]="newEmployee.lastName" placeholder="Last Name">
+      <input type="date" [(ngModel)]="newEmployee.hireDate">
+
+      <select [(ngModel)]="newEmployee.department.id">
+        <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+      </select>
+
+      <select [(ngModel)]="newEmployee.team.id">
+        <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+      </select>
+
+      <button (click)="saveUpdate()">Kaydet</button>
+      <button (click)="cancelEdit()">Vazgeç</button>
+    </div>
+  </div>
+
+  <!-- Yeni Employee Ekle -->
+  <div class="card new-employee">
+    <h3>New Employee Add</h3>
+
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" [(ngModel)]="newEmployee.firstName" placeholder="First Name">
+    </div>
+
+    <div class="form-group">
+      <label>Last Name:</label>
+      <input type="text" [(ngModel)]="newEmployee.lastName" placeholder="Last Name">
+    </div>
+
+    <div class="form-group">
+      <label>Hire Date:</label>
+      <input type="date" [(ngModel)]="newEmployee.hireDate">
+    </div>
+
+    <div class="form-group">
+      <label>Department:</label>
+      <select [(ngModel)]="newEmployee.department.id">
+        <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Team:</label>
+      <select [(ngModel)]="newEmployee.team.id">
+        <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+      </select>
+    </div>
+
+    <button (click)="createEmployee()">Kaydet</button>
+  </div>
+</div>

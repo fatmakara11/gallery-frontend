@@ -1,0 +1,98 @@
+.employee-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .card-info {
+    h3 {
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      color: #333;
+    }
+
+    p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  }
+
+  button {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+
+  button:first-of-type {
+    background-color: #f44336; /* Delete: kırmızı */
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+
+  button:last-of-type {
+    background-color: #2196f3; /* Update: mavi */
+    &:hover {
+      background-color: #1976d2;
+    }
+  }
+}
+.new-employee {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    input,
+    select {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 16px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #145ea8;
+  }
+}
