@@ -1,0 +1,66 @@
+<div>
+  <input [(ngModel)]="filter.firstName" placeholder="Ad" name="firstName" />
+  <input [(ngModel)]="filter.lastName" placeholder="Soyad" name="lastName" />
+  <input [(ngModel)]="filter.city" placeholder="Şehir" name="city" />
+
+  <select [(ngModel)]="filter.gender" name="gender">
+    <option [ngValue]="undefined">Cinsiyet seçiniz</option>
+    <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.position" name="position">
+    <option [ngValue]="undefined">Pozisyon seçiniz</option>
+    <option *ngFor="let p of positions" [value]="p">{{ p }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.employmentStatus" name="employmentStatus">
+    <option [ngValue]="undefined">Çalışma durumu seçiniz</option>
+    <option *ngFor="let e of employmentStatuses" [value]="e">{{ e }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.contractType" name="contractType">
+    <option [ngValue]="undefined">Sözleşme tipi seçiniz</option>
+    <option *ngFor="let c of contractTypes" [value]="c">{{ c }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.ageOrder" name="ageOrder">
+    <option [ngValue]="undefined">Yaş sıralaması</option>
+    <option value="asc">Artan</option>
+    <option value="desc">Azalan</option>
+  </select>
+
+  <select [(ngModel)]="filter.hireDateOrder" name="hireDateOrder">
+    <option [ngValue]="undefined">İşe başlama tarihi sıralaması</option>
+    <option value="asc">Artan</option>
+    <option value="desc">Azalan</option>
+  </select>
+
+  <button (click)="applyFilter()">Filtrele</button>
+  <button (click)="clearFilter()">Temizle</button>
+</div>
+
+<hr>
+
+<!-- Filtre sonucu varsa göster -->
+<div *ngIf="employees.length > 0">
+  <h3>Filtrelenmiş Çalışanlar</h3>
+  <div class="employee-list">
+    <div *ngFor="let employee of employees" class="employee-card">
+      <h4>{{ employee.firstName }} {{ employee.lastName }}</h4>
+      <p><b>Department:</b> {{ employee.department.name }}</p>
+      <p><b>Team:</b> {{ employee.team.name }}</p>
+      <p><b>Hire Date:</b> {{ employee.hireDate }}</p>
+      <p><b>Birth Date:</b> {{ employee.birthDate }}</p>
+      <p><b>City:</b> {{ employee.city }}</p>
+      <p><b>Email:</b> {{ employee.email }}</p>
+      <p><b>Phone:</b> {{ employee.phone }}</p>
+      <p><b>Gender:</b> {{ employee.gender }}</p>
+      <p><b>Position:</b> {{ employee.position }}</p>
+      <p><b>Contract Type:</b> {{ employee.contractType }}</p>
+      <p><b>Employment Status:</b> {{ employee.employmentStatus }}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="employees.length === 0">
+  <p>Filtrelere uygun çalışan bulunamadı.</p>
+</div>
