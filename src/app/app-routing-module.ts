@@ -15,7 +15,11 @@ import { Login } from './admin/login/login';
 import { Dashboard} from './admin/dashboard/dashboard';
 import { DepartmentManager } from './admin/department-manager/department-manager';
 import { TeamManager } from './admin/team-manager/team-manager';
-import { EmployeeManager } from './admin/employee-manager/employee-manager';
+import {EmployeeManager} from './employee/employee-manager/employee-manager';
+import {EmployeeFilter} from './employee/employee-filter/employee-filter';
+import {EmployeeAddPanel} from './employee/employee-add-panel/employee-add-panel';
+import {EmployeePage} from './employee/employee-page/employee-page';
+
 
 // Guard (ileride eklenecek)
 //import { AuthGuard } from './core/auth.guard'; // yoksa commentle
@@ -46,7 +50,7 @@ const routes: Routes = [
       { path: 'dashboard', component: Dashboard },
       { path: 'department-manager', component: DepartmentManager },
       { path: 'team-manager', component: TeamManager },
-      { path: 'employee-manager', component: EmployeeManager },
+      { path: 'employee-page', component: EmployeePage }
     ]
   },
 

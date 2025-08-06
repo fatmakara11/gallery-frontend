@@ -3,7 +3,7 @@ import { Position } from '../enums/position';
 import { EmploymentStatus } from '../enums/employment-status';
 import { ContractType } from '../enums/ContractType';
 
-export interface EmployeeFilter {
+export interface EmployeeFilterModel {
   ageOrder?: 'asc' | 'desc';
   city?: string;
   contractType?: ContractType;

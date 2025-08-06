@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Employee } from '../models/employee.model';
 import { Observable } from 'rxjs';
 import {EmploymentStatus, Gender, Position} from '../models/employee-types';
-import {EmployeeFilter} from '../models/employee-filter';
+import {EmployeeFilterModel} from '../models/employee-filter-model';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
@@ -55,7 +55,7 @@ export class EmployeeService {
   }
 
   /**FİLTRELEME İÇİN */
-  getFilteredEmployees(filters: EmployeeFilter): Observable<Employee[]> {
+  getFilteredEmployees(filters: EmployeeFilterModel): Observable<Employee[]> {
     return this.http.post<Employee[]>(`${this.apiUrl}/filter`, filters);
   }
 

@@ -22,7 +22,6 @@ import { Login } from './admin/login/login';
 import { Dashboard } from './admin/dashboard/dashboard';
 import { DepartmentManager } from './admin/department-manager/department-manager';
 import { TeamManager } from './admin/team-manager/team-manager';
-import { EmployeeManager } from './admin/employee-manager/employee-manager';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,7 +30,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { EmployeeFilterComponent } from './admin/employee-filter.component/employee-filter.component';
+
+import { EmployeePage } from './employee/employee-page/employee-page';
+import { EmployeeAddPanel } from './employee/employee-add-panel/employee-add-panel';
+import { EmployeeFilter } from './employee/employee-filter/employee-filter';
+import {CommonModule} from '@angular/common';
+import {EmployeeManager} from './employee/employee-manager/employee-manager';
 
 
 
@@ -55,7 +59,9 @@ import { EmployeeFilterComponent } from './admin/employee-filter.component/emplo
     TeamManager,
     EmployeeManager,
     Dashboard,
-    EmployeeFilterComponent
+    EmployeePage,
+    EmployeeAddPanel,
+    EmployeeFilter
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,7 @@ import { EmployeeFilterComponent } from './admin/employee-filter.component/emplo
     MatListModule,
     MatIconModule,
     MatSelectModule,
-
+    CommonModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
