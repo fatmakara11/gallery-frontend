@@ -1,0 +1,45 @@
+<div class="filter-accordion">
+
+  <input [(ngModel)]="filter.firstName" placeholder="First Name" name="firstName" class="filter-field short-input" />
+  <input [(ngModel)]="filter.lastName" placeholder="Last Name" name="lastName" class="filter-field short-input" />
+  <input [(ngModel)]="filter.city" placeholder="City" name="city" class="filter-field short-input" />
+
+  <select [(ngModel)]="filter.gender" name="gender" class="filter-field">
+    <option [ngValue]="undefined">Select Gender</option>
+    <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.position" name="position" class="filter-field">
+    <option [ngValue]="undefined">Select Position</option>
+    <option *ngFor="let p of positions" [value]="p">{{ p }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.employmentStatus" name="employmentStatus" class="filter-field">
+    <option [ngValue]="undefined">Select Employment Status</option>
+    <option *ngFor="let e of employmentStatuses" [value]="e">{{ e }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.contractType" name="contractType" class="filter-field">
+    <option [ngValue]="undefined">Select Contract Type</option>
+    <option *ngFor="let c of contractTypes" [value]="c">{{ c }}</option>
+  </select>
+
+  <select [(ngModel)]="filter.ageOrder" name="ageOrder" class="filter-field">
+    <option [ngValue]="undefined">Sort by Age</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+
+  <select [(ngModel)]="filter.hireDateOrder" name="hireDateOrder" class="filter-field">
+    <option [ngValue]="undefined">Sort by Hire Date</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+
+  <div class="filter-buttons">
+    <button (click)="applyFilter()">Apply Filters</button>
+    <button (click)="clearFilter()">Clear</button>
+  </div>
+</div>
+
+<app-employee-manager></app-employee-manager>

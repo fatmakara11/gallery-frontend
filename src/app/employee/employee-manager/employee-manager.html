@@ -1,0 +1,71 @@
+<div class="employee-container">
+  <div *ngFor="let emp of employees"
+       class="card"
+       [ngClass]="{
+         'card-active': emp.employmentStatus === 'ACTIVE',
+         'card-resigned': emp.employmentStatus === 'RESIGNED',
+         'card-onleave': emp.employmentStatus === 'ON_LEAVE'
+       }"
+  >
+    <!-- Normal Görünüm -->
+    <div *ngIf="editableId !== emp.id" class="employee-card">
+      <div class="card-info">
+        <h3>{{ emp.firstName }} {{ emp.lastName }}</h3>
+        <p><strong>Department:</strong> {{ emp.department.name }}</p>
+        <p><strong>Team:</strong> {{ emp.team.name }}</p>
+        <p><strong>Hire Date:</strong> {{ emp.hireDate }}</p>
+        <p><strong>Birth Date:</strong> {{ emp.birthDate }}</p>
+        <p><strong>City:</strong> {{ emp.city }}</p>
+        <p><strong>Email:</strong> {{ emp.email }}</p>
+        <p><strong>Phone:</strong> {{ emp.phone }}</p>
+        <p><strong>Gender:</strong> {{ emp.gender }}</p>
+        <p><strong>Position:</strong> {{ emp.position }}</p>
+        <p><strong>Contract Type:</strong> {{ emp.contractType }}</p>
+        <p><strong>Employment Status:</strong> {{ emp.employmentStatus }}</p>
+
+        <div class="button-group">
+          <button (click)="deleteEmployee(emp.id!)" class="btn btn-danger">Delete</button>
+          <button (click)="setEditable(emp)" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Düzenleme Modu -->
+    <div *ngIf="editableId === emp.id" class="card-edit">
+      <input type="text" [(ngModel)]="editedEmployee.firstName" placeholder="First Name" />
+      <input type="text" [(ngModel)]="editedEmployee.lastName" placeholder="Last Name" />
+      <input type="date" [(ngModel)]="editedEmployee.hireDate" />
+      <input type="date" [(ngModel)]="editedEmployee.birthDate" />
+      <input type="email" [(ngModel)]="editedEmployee.email" placeholder="Email" />
+      <input type="text" [(ngModel)]="editedEmployee.phone" placeholder="Phone" />
+      <input type="text" [(ngModel)]="editedEmployee.city" placeholder="City" />
+
+      <select [(ngModel)]="editedEmployee.gender" name="gender">
+        <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+      </select>
+
+      <select [(ngModel)]="editedEmployee.position" name="position">
+        <option *ngFor="let p of positions" [value]="p">{{ p }}</option>
+      </select>
+
+      <select [(ngModel)]="editedEmployee.employmentStatus" name="employmentStatus">
+        <option *ngFor="let e of employmentStatuses" [value]="e">{{ e }}</option>
+      </select>
+
+      <select [(ngModel)]="editedEmployee.contractType" name="contractType">
+        <option *ngFor="let c of contractTypes" [value]="c">{{ c }}</option>
+      </select>
+
+      <select [(ngModel)]="editedEmployee.department.id" name="department">
+        <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+      </select>
+
+      <select [(ngModel)]="editedEmployee.team.id" name="team">
+        <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+      </select>
+
+      <button (click)="saveUpdate()">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+</div>

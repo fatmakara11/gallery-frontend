@@ -1,0 +1,25 @@
+<div class="employee-container">
+  <app-employee-filter (filterApplied)="onFilterApplied($event)"></app-employee-filter>
+
+  <app-employee-add-panel
+    [genders]="genders"
+    [positions]="positions"
+    [employmentStatuses]="employmentStatuses"
+    [contractTypes]="contractTypes"
+    [departments]="departments"
+    [teams]="teams"
+    (employeeCreated)="onEmployeeCreated($event)">
+  </app-employee-add-panel>
+
+  <app-employee-manager
+    [employees]="employees"
+    [departments]="departments"
+    [teams]="teams"
+    [genders]="genders"
+    [positions]="positions"
+    [contractTypes]="contractTypes"
+    [employmentStatuses]="employmentStatuses"
+    (updated)="handleUpdated()"
+    (deleted)="handleDeleted()"
+  ></app-employee-manager>
+</div>
