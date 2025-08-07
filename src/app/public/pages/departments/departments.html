@@ -1,1 +1,27 @@
-<p>departments works!</p>
+<section class="department-stats">
+  <h2>Company Overview</h2>
+  <div class="stats-grid">
+    <div class="stat-card stat-departments">
+      <h3>Departments</h3>
+      <p>{{ departmentCount }}</p>
+    </div>
+    <div class="stat-card stat-teams">
+      <h3>Teams</h3>
+      <p>{{ teamCount }}</p>
+    </div>
+    <div class="stat-card stat-employees">
+      <h3>Employees</h3>
+      <p>{{ employeeCount }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="department-list">
+  <h2>Our Departments</h2>
+  <div class="departments-container">
+    <div class="department-card" *ngFor="let dept of departments">
+      <h3>{{ dept.name }}</h3>
+      <p>{{ dept.description }}</p>
+    </div>
+  </div>
+</section>

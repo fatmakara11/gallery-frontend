@@ -1,15 +1,22 @@
 <div class="employee-container">
   <app-employee-filter (filterApplied)="onFilterApplied($event)"></app-employee-filter>
 
-  <app-employee-add-panel
-    [genders]="genders"
-    [positions]="positions"
-    [employmentStatuses]="employmentStatuses"
-    [contractTypes]="contractTypes"
-    [departments]="departments"
-    [teams]="teams"
-    (employeeCreated)="onEmployeeCreated($event)">
-  </app-employee-add-panel>
+  <!-- Sağdan gelen panel -->
+  <div class="slide-panel" [class.open]="isPanelOpen">
+    <app-employee-add-panel
+      [genders]="genders"
+      [positions]="positions"
+      [employmentStatuses]="employmentStatuses"
+      [contractTypes]="contractTypes"
+      [departments]="departments"
+      [teams]="teams"
+      (employeeCreated)="onEmployeeCreated($event)">
+    </app-employee-add-panel>
+  </div>
+
+  <!-- Sağ üstte açma butonu -->
+  <button class="open-panel-button" (click)="togglePanel()">Add New Employee
+  </button>
 
   <app-employee-manager
     [employees]="employees"

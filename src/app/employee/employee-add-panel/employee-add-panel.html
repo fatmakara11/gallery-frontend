@@ -1,24 +1,24 @@
 <div class="employee-add-panel">
-  <h2>Yeni Çalışan Ekle</h2>
+  <h2>Add New Employee</h2>
 
   <div class="form-row">
     <div class="form-group">
-      <label>Ad:</label>
+      <label>Name:</label>
       <input type="text" [(ngModel)]="newEmployee.firstName" placeholder="Ad">
     </div>
     <div class="form-group">
-      <label>Soyad:</label>
+      <label>Lastname:</label>
       <input type="text" [(ngModel)]="newEmployee.lastName" placeholder="Soyad">
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group">
-      <label>İşe Alım Tarihi:</label>
+      <label>Hire Date:</label>
       <input type="date" [(ngModel)]="newEmployee.hireDate">
     </div>
     <div class="form-group">
-      <label>Doğum Tarihi:</label>
+      <label>Birth Date:</label>
       <input type="date" [(ngModel)]="newEmployee.birthDate">
     </div>
   </div>
@@ -29,20 +29,20 @@
       <input type="email" [(ngModel)]="newEmployee.email" placeholder="Email">
     </div>
     <div class="form-group">
-      <label>Telefon:</label>
+      <label>Phone:</label>
       <input type="text" [(ngModel)]="newEmployee.phone" placeholder="Telefon">
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group">
-      <label>Cinsiyet:</label>
+      <label>Gender:</label>
       <select [(ngModel)]="newEmployee.gender">
         <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Pozisyon:</label>
+      <label>Position:</label>
       <select [(ngModel)]="newEmployee.position">
         <option *ngFor="let p of positions" [value]="p">{{ p }}</option>
       </select>
@@ -51,13 +51,13 @@
 
   <div class="form-row">
     <div class="form-group">
-      <label>Sözleşme Türü:</label>
+      <label>Contract Type:</label>
       <select [(ngModel)]="newEmployee.contractType">
         <option *ngFor="let c of contractTypes" [value]="c">{{ c }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Çalışma Durumu:</label>
+      <label>Employment Status:</label>
       <select [(ngModel)]="newEmployee.employmentStatus">
         <option *ngFor="let e of employmentStatuses" [value]="e">{{ e }}</option>
       </select>
@@ -65,19 +65,19 @@
   </div>
 
   <div class="form-group">
-    <label>Şehir:</label>
+    <label>City:</label>
     <input type="text" [(ngModel)]="newEmployee.city" placeholder="Şehir">
   </div>
 
   <div class="form-row">
     <div class="form-group">
-      <label>Departman:</label>
+      <label>Department:</label>
       <select [(ngModel)]="newEmployee.department.id">
         <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Takım:</label>
+      <label>Team:</label>
       <select [(ngModel)]="newEmployee.team.id">
         <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
       </select>
@@ -85,5 +85,5 @@
   </div>
 
 
-  <button class="save-button" (click)="createEmployee()">Kaydet</button>
+  <button class="save-button" (click)="createEmployee()">Create</button>
 </div>

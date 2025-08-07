@@ -65,5 +65,13 @@ export class EmployeePage implements OnInit {
         alert('Çalışan eklenemedi.');
       }
     });
+    this.employees.push(employee);
+    this.isPanelOpen = false;
   }
+  isPanelOpen = false;
+
+  togglePanel() {
+    this.isPanelOpen = !this.isPanelOpen;
+  }
+
 }
