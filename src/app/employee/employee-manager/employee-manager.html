@@ -11,8 +11,8 @@
     <div *ngIf="editableId !== emp.id" class="employee-card">
       <div class="card-info">
         <h3>{{ emp.firstName }} {{ emp.lastName }}</h3>
-        <p><strong>Department:</strong> {{ emp.department.name }}</p>
-        <p><strong>Team:</strong> {{ emp.team.name }}</p>
+        <p><strong>Department:</strong> {{ emp.department?.name || 'Bölüm bulunamadı' }}</p>
+        <p><strong>Team:</strong> {{ emp.team?.name || 'Takımı bulunamadı' }}</p>
         <p><strong>Hire Date:</strong> {{ emp.hireDate }}</p>
         <p><strong>Birth Date:</strong> {{ emp.birthDate }}</p>
         <p><strong>City:</strong> {{ emp.city }}</p>
@@ -22,7 +22,6 @@
         <p><strong>Position:</strong> {{ emp.position }}</p>
         <p><strong>Contract Type:</strong> {{ emp.contractType }}</p>
         <p><strong>Employment Status:</strong> {{ emp.employmentStatus }}</p>
-
         <div class="button-group">
           <button (click)="deleteEmployee(emp.id!)" class="btn btn-danger">Delete</button>
           <button (click)="setEditable(emp)" class="btn btn-primary">Update</button>
@@ -41,27 +40,27 @@
       <input type="text" [(ngModel)]="editedEmployee.city" placeholder="City" />
 
       <select [(ngModel)]="editedEmployee.gender" name="gender">
-        <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+        <option *ngFor="let g of genders" [ngValue]="g">{{ g }}</option>
       </select>
 
       <select [(ngModel)]="editedEmployee.position" name="position">
-        <option *ngFor="let p of positions" [value]="p">{{ p }}</option>
+        <option *ngFor="let p of positions" [ngValue]="p">{{ p }}</option>
       </select>
 
       <select [(ngModel)]="editedEmployee.employmentStatus" name="employmentStatus">
-        <option *ngFor="let e of employmentStatuses" [value]="e">{{ e }}</option>
+        <option *ngFor="let e of employmentStatuses" [ngValue]="e">{{ e }}</option>
       </select>
 
       <select [(ngModel)]="editedEmployee.contractType" name="contractType">
-        <option *ngFor="let c of contractTypes" [value]="c">{{ c }}</option>
+        <option *ngFor="let c of contractTypes" [ngValue]="c">{{ c }}</option>
       </select>
 
-      <select [(ngModel)]="editedEmployee.department.id" name="department">
-        <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+      <select [(ngModel)]="editedEmployee.department" name="department">
+        <option *ngFor="let dept of departments" [ngValue]="dept">{{ dept.name }}</option>
       </select>
 
-      <select [(ngModel)]="editedEmployee.team.id" name="team">
-        <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+      <select [(ngModel)]="editedEmployee.team" name="team">
+        <option *ngFor="let team of teams" [ngValue]="team">{{ team.name }}</option>
       </select>
 
       <button (click)="saveUpdate()">Save</button>

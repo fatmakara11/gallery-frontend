@@ -52,4 +52,10 @@ export class TeamManager implements OnInit {
       this.fetchTeams();
     });
   }
+  removeEmployee(teamId: number, employeeId: number) {
+    this.teamService.removeEmployeeFromTeam(teamId, employeeId).subscribe(() => {
+      this.fetchTeams(); // Listeyi yenile
+    });
+  }
+
 }

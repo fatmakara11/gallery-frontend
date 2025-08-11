@@ -44,9 +44,10 @@ export class EmployeePage implements OnInit {
     this.teamService.getAllTeams().subscribe(data => this.teams = data);
   }
   handleUpdated() {
-    this.employeeService.getEmployees().subscribe((data) => (this.employees = data));
+    this.employeeService.getEmployees().subscribe(data => {
+      this.employees = data;  // Backend'den son güncel liste alınıyor
+    });
   }
-
   handleDeleted() {
     this.employeeService.getEmployees().subscribe((data) => (this.employees = data));
   }
@@ -65,7 +66,6 @@ export class EmployeePage implements OnInit {
         alert('Çalışan eklenemedi.');
       }
     });
-    this.employees.push(employee);
     this.isPanelOpen = false;
   }
   isPanelOpen = false;

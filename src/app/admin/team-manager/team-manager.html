@@ -1,37 +1,46 @@
-<div class="team-container">
+<div class="team-list">
+  <div *ngFor="let team of teams; let i = index" class="team-card">
 
-  <div class="team-header">
-    <h2>Takımlar</h2>
-  </div>
+    <!-- Üst: Takım adı ve Düzenle / Sil butonları -->
+    <div class="team-header">
+      <div *ngIf="!editMode[i]" class="team-name">{{ team.name }}</div>
+      <input *ngIf="editMode[i]" [(ngModel)]="teams[i].name" placeholder="Takım Adı" />
 
-  <div class="team-list">
-    <div *ngFor="let team of teams; let i = index" class="team-card">
-
-      <!-- Görüntüleme Modu -->
-      <div *ngIf="!editMode[i]">
-        <div class="team-name">{{ team.name }}</div>
-        <div class="card-buttons">
-          <button class="edit-btn" (click)="enableEdit(i)">Düzenle</button>
-          <button class="delete-btn" (click)="deleteTeam(team.id!)">Sil</button>
-        </div>
+      <div class="card-buttons">
+        <button *ngIf="!editMode[i]" (click)="enableEdit(i)" class="edit-btn">Düzenle</button>
+        <button (click)="deleteTeam(team.id!)" class="delete-btn">Sil</button>
       </div>
-
-      <!-- Düzenleme Modu -->
-      <div *ngIf="editMode[i]" class="team-form">
-        <input [(ngModel)]="teams[i].name" placeholder="Takım Adı" />
-        <div class="card-buttons">
-          <button class="edit-btn" (click)="saveEdit(i)">Kaydet</button>
-          <button class="delete-btn" (click)="editMode[i] = false">İptal</button>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <!-- Yeni Takım Ekleme -->
-  <div class="team-form">
-    <input [(ngModel)]="newTeam.name" placeholder="Yeni Takım Adı" />
-    <button (click)="addTeam()">Ekle</button>
-  </div>
+    <!-- Çalışan Listesi (her zaman görünür) -->
+    <table class="employee-list">
+      <thead>
+      <tr>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Departman</th>
+        <th>Takım</th>
+        <th *ngIf="editMode[i]">İşlem</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emp of team.employees || []">
+        <td>{{ emp.firstName }}</td>
+        <td>{{ emp.lastName }}</td>
+        <td>{{ emp.department.name || 'Yok' }}</td>
+        <td>{{ emp.team.name || 'Yok' }}</td>
+        <td *ngIf="editMode[i]">
+          <button class="remove-btn" (click)="removeEmployee(team.id!, emp.id!)">Remove</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
+    <!-- Çalışan listesinin altında, sadece düzenleme modunda Save ve Cancel -->
+    <div *ngIf="editMode[i]" class="edit-actions">
+      <button class="save-btn" (click)="saveEdit(i)">Save</button>
+      <button class="cancel-btn" (click)="editMode[i] = false">Cancel</button>
+    </div>
+
+  </div>
 </div>

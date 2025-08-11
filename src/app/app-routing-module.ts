@@ -15,14 +15,7 @@ import { Login } from './admin/login/login';
 import { Dashboard} from './admin/dashboard/dashboard';
 import { DepartmentManager } from './admin/department-manager/department-manager';
 import { TeamManager } from './admin/team-manager/team-manager';
-import {EmployeeManager} from './employee/employee-manager/employee-manager';
-import {EmployeeFilter} from './employee/employee-filter/employee-filter';
-import {EmployeeAddPanel} from './employee/employee-add-panel/employee-add-panel';
 import {EmployeePage} from './employee/employee-page/employee-page';
-
-
-// Guard (ileride eklenecek)
-//import { AuthGuard } from './core/auth.guard'; // yoksa commentle
 
 const routes: Routes = [
   // PUBLIC ROUTES
@@ -45,7 +38,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayout,
-    //canActivate: [AuthGuard], // Giriş yapmamışsa yönlendirme yapılır
     children: [
       { path: 'dashboard', component: Dashboard },
       { path: 'department-manager', component: DepartmentManager },

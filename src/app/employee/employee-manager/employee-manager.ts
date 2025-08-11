@@ -15,31 +15,24 @@ export class EmployeeManager implements OnInit {
   @Input() employees:Employee[]=[];
   @Input() departments:Department[]=[];
   @Input() teams:Team[]=[];
-
   @Input() genders:String[]=[];
   @Input() positions:String[]=[];
   @Input() employmentStatuses:String[]=[];
   @Input() contractTypes:String[]=[];
-
   @Output() updated = new EventEmitter<void>();
   @Output() deleted = new EventEmitter<void>();
 
   editableId: number | null = null;
   editedEmployee!: Employee;
-
   constructor(private employeeService: EmployeeService) {}
-
   ngOnInit() {}
-
   setEditable(emp: Employee) {
     this.editableId = emp.id!;
     this.editedEmployee = { ...emp };
   }
-
   cancelEdit() {
     this.editableId = null;
   }
-
   saveUpdate() {
     if (!this.editableId) return;
     this.employeeService.updateEmployee(this.editableId, this.editedEmployee).subscribe(() => {
@@ -47,13 +40,9 @@ export class EmployeeManager implements OnInit {
       this.updated.emit();
     });
   }
-
   deleteEmployee(id: number) {
     this.employeeService.deleteEmployee(id).subscribe(() => {
       this.deleted.emit();
     });
   }
-
-
-
 }

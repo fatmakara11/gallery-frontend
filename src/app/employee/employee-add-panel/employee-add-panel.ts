@@ -30,8 +30,8 @@ export class EmployeeAddPanel {
     position: 'SPECIALIST',
     employmentStatus: 'ACTIVE',
     contractType: 'FULL_TIME',
-    department: { id: 0, name: '' },
-    team: { id: 0, name: '' },
+    department: { id: 0, name: '' } as Department,
+    team: { id: 0, name: '' } as Team,
     city: ''
   };
 
